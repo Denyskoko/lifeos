@@ -205,14 +205,12 @@ body{font-family:'Inter',-apple-system,sans-serif;background:#000010;color:var(-
     <div class="connect-logo">LIFE OS</div>
     <div class="connect-title">Connect</div>
     <div class="connect-sub">Enter once — all devices sync automatically.</div>
-    <div class="cf"><label>Project URL</label><input id="sb-url" placeholder="https://bckpifacobftbylpzcjd.supabase.co" type="url"></div>
-    <div class="cf"><label>Anon Key</label><input id="sb-key" placeholder="eyJ..."></div>
     <div class="cf">
       <label>Your sync code</label>
       <input id="sync-code-inp" placeholder="Pick any word — e.g. denys2026">
     </div>
     <div style="font-size:11px;color:var(--tx3);margin-bottom:16px;line-height:1.6">
-      Your sync code is your personal ID. Use the same code on every device.
+      Same code on every device. You choose it — remember it.
     </div>
     <div class="connect-err" id="connect-err"></div>
     <button class="connect-btn" onclick="doConnect()">Connect</button>
@@ -461,7 +459,7 @@ function showApp(){
 }
 function disconnect(){
   if(!confirm('Disconnect sync?'))return;
-  ['sb-url','sb-key','sync-code'].forEach(k=>localStorage.removeItem(k));
+  localStorage.removeItem('sync-code');
   location.reload();
 }
 
@@ -696,10 +694,10 @@ function go(page,btn){
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 async function init(){
-  const url=ls('sb-url','');const key=ls('sb-key','');const code=ls('sync-code','');
-  if(url&&key&&code){
+  const code=ls('sync-code','');
+  if(code){
     try{
-      SB=window.supabase.createClient(url,key);SYNC_CODE=code;
+      SB=window.supabase.createClient(SB_URL,SB_KEY);SYNC_CODE=code;
       showApp();await syncDown();render();return;
     }catch(e){}
   }
