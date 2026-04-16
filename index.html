@@ -429,21 +429,21 @@ function setSyncStatus(s){
 }
 
 // ─── CONNECT ──────────────────────────────────────────────────────────────────
+const SB_URL='https://bckpifacobftbylpzcjd.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJja3BpZmFjb2JmdGJ5bHB6Y2pkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzNDI4NTAsImV4cCI6MjA5MTkxODg1MH0.TLtLbCMm_Uvmj73tDxa8mQIVm-eLMRCnVNT_lEtpSNw';
+
 async function doConnect(){
-  const url=document.getElementById('sb-url').value.trim();
-  const key=document.getElementById('sb-key').value.trim();
   const code=document.getElementById('sync-code-inp').value.trim();
   const err=document.getElementById('connect-err');
   err.textContent='';
-  if(!url||!key||!code){err.textContent='Fill in all three fields';return;}
+  if(!code){err.textContent='Enter your sync code';return;}
   document.querySelector('.connect-btn').textContent='Connecting...';
   try{
-    SB=window.supabase.createClient(url,key);
-    // Test connection
+    SB=window.supabase.createClient(SB_URL,SB_KEY);
     const{error}=await SB.from('app_data').select('id').limit(1);
     if(error&&error.code!=='PGRST116'){throw new Error(error.message);}
     SYNC_CODE=code;
-    ss('sb-url',url);ss('sb-key',key);ss('sync-code',code);
+    ss('sync-code',code);
     showApp();
     await syncDown();
     render();
