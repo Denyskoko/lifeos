@@ -39,24 +39,24 @@
   --grid:  rgba(255,255,255,0.06);
 }
 
-/* ── Light ──────────────────────────────────────────────────────────────────── */
+/* ── Light ───────────────────────────────────────────────────────────────────── */
 [data-theme="light"] {
-  --bg:    #f2f2f7;
-  --gl:    rgba(255,255,255,0.75);
-  --gl2:   rgba(255,255,255,0.50);
+  --bg:    #f0f2f8;
+  --gl:    rgba(255,255,255,0.72);
+  --gl2:   rgba(255,255,255,0.45);
   --bd:    rgba(0,0,0,0.07);
   --bd2:   rgba(0,0,0,0.13);
-  --tx:    #1d1d1f;
-  --tx2:   #6e6e73;
-  --tx3:   #aeaeb2;
-  --gr:    #28cd41; --gra: rgba(40,205,65,0.10);  --grb: rgba(40,205,65,0.30);
-  --am:    #ff9500; --ama: rgba(255,149,0,0.10);   --ambo:rgba(255,149,0,0.30);
-  --rd:    #ff3b30; --rda: rgba(255,59,48,0.10);   --rdb: rgba(255,59,48,0.30);
-  --bl:    #007aff; --bla: rgba(0,122,255,0.10);   --blb: rgba(0,122,255,0.30);
-  --pu:    #af52de; --pua: rgba(175,82,222,0.10);
-  --nav:   rgba(242,242,247,0.88);
-  --inp:   #ffffff;
-  --ax:    rgba(0,0,0,0.30);
+  --tx:    #0d1117;
+  --tx2:   #4a5568;
+  --tx3:   #9aa5b4;
+  --gr:    #00a86b; --gra: rgba(0,168,107,0.10);  --grb: rgba(0,168,107,0.28);
+  --am:    #e07b00; --ama: rgba(224,123,0,0.10);   --ambo:rgba(224,123,0,0.28);
+  --rd:    #e53e3e; --rda: rgba(229,62,62,0.10);   --rdb: rgba(229,62,62,0.28);
+  --bl:    #2563eb; --bla: rgba(37,99,235,0.10);   --blb: rgba(37,99,235,0.28);
+  --pu:    #7c3aed; --pua: rgba(124,58,237,0.10);
+  --nav:   rgba(240,242,248,0.90);
+  --inp:   rgba(255,255,255,0.90);
+  --ax:    rgba(0,0,0,0.35);
   --grid:  rgba(0,0,0,0.06);
 }
 
@@ -77,9 +77,17 @@ body{
     radial-gradient(ellipse at 85% 85%,rgba(10,132,255,0.06) 0%,transparent 50%),
     linear-gradient(135deg,#000814,#000d1a,#050010);
 }
+/* Light background gradient */
+[data-theme="light"] body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 15% 15%,rgba(37,99,235,0.06) 0%,transparent 50%),
+    radial-gradient(ellipse at 85% 80%,rgba(0,168,107,0.05) 0%,transparent 50%),
+    linear-gradient(160deg,#eef0f8,#f4f2fa,#f0f5f2);
+}
 
 .scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;position:relative;z-index:1;
-  padding-top:calc(var(--sat)+22px);
+  padding-top:22px;
   padding-bottom:calc(28px + var(--sab));
   padding-left:max(24px, env(safe-area-inset-left, 24px));
   padding-right:max(24px, env(safe-area-inset-right, 24px));
@@ -148,6 +156,14 @@ body{
 .sync-dot.offline{background:var(--am);}.sync-dot.syncing{background:var(--bl);animation:pulse 1s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
 
+/* ── Global top bar ──────────────────────────────────────────────────────────── */
+.global-topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 24px 6px;
+  background:var(--nav);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:.5px solid var(--bd);
+  position:relative;z-index:10;flex-shrink:0;
+}
 /* ── Header ─────────────────────────────────────────────────────────────────── */
 .hd{margin-bottom:17px;}
 .hd-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
@@ -406,7 +422,8 @@ body{
 .pb-bg{background:rgba(255,255,255,0.07);border-radius:99px;height:6px;overflow:hidden;}
 [data-theme="light"] .pb-bg{background:rgba(0,0,0,0.08);}
 .pb-fill{height:100%;border-radius:99px;transition:width .5s cubic-bezier(.4,0,.2,1),background .3s;}
-.food-inp-row{display:grid;grid-template-columns:1fr 64px 64px auto;gap:6px;margin-top:11px;align-items:center;}
+.food-inp-row{display:grid;grid-template-columns:1fr 1fr auto;gap:6px;margin-top:11px;align-items:center;}
+.food-inp-row .food-lbl-inp{grid-column:1/-1;}
 .flog-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:.5px solid var(--bd);}
 .flog-item:last-child{border-bottom:none;}
 .flog-info{flex:1;min-width:0;}
@@ -443,6 +460,14 @@ body{
   white-space:pre-wrap;line-height:1.6;margin-bottom:10px;height:240px;
   overflow-y:auto;display:none;width:100%;resize:none;}
 [data-theme="light"] .report-out{background:var(--gl);font-family:'Inter',monospace;}
+[data-theme="light"] .prog-bg{background:rgba(0,0,0,0.08);}
+[data-theme="light"] .pb-bg{background:rgba(0,0,0,0.08);}
+[data-theme="light"] .journal-ta{background:var(--gl);border-color:rgba(0,0,0,0.1);}
+[data-theme="light"] .journal-ta:focus{border-color:rgba(0,0,0,0.22);}
+[data-theme="light"] .inp:focus{border-color:var(--bl);}
+[data-theme="light"] .modal{background:rgba(245,246,250,0.98);}
+[data-theme="light"] .mfield select option{background:#f5f6fa;}
+[data-theme="light"] .mbtn.cancel{background:rgba(0,0,0,0.08);color:var(--tx);}
 </style>
 </head>
 <body>
@@ -460,21 +485,23 @@ body{
 </div>
 
 <!-- APP -->
-<div id="app" class="hidden" style="display:flex;flex-direction:column;height:100dvh">
+<div id="app" class="hidden" style="display:flex;flex-direction:column;height:100dvh;padding-top:env(safe-area-inset-top)">
+
+<!-- GLOBAL TOP BAR -->
+<div class="global-topbar">
+  <div class="brand">LIFE OS</div>
+  <div class="hd-right">
+    <div class="hd-date" id="hd-date"></div>
+    <button class="lang-btn" id="lang-btn" onclick="toggleLang()">UA</button>
+    <button class="theme-btn" id="theme-btn" onclick="toggleTheme()">☀️</button>
+  </div>
+</div>
+
 <div class="scroll" id="scroll">
 
 <!-- TODAY -->
 <div id="p-today" class="page on">
   <div class="hd">
-    <div class="hd-top">
-      <div class="brand">LIFE OS</div>
-      <div class="hd-right">
-        <div class="hd-date" id="hd-date"></div>
-        <button class="lang-btn" id="lang-btn" onclick="toggleLang()">UA</button>
-        <button class="theme-btn" onclick="goSettings()" style="font-size:14px;line-height:1">⚙</button>
-        <button class="theme-btn" id="theme-btn" onclick="toggleTheme()">☀️</button>
-      </div>
-    </div>
     <div class="greeting" id="greeting"></div>
     <div class="pb"><div class="pf" id="pf" style="width:0%"></div></div>
     <div class="pr"><span id="pl"></span><span id="pp"></span></div>
@@ -493,8 +520,12 @@ body{
       <div class="water-cups" id="water-cups"></div>
     </div>
     <div style="height:.5px;background:var(--bd);margin:0 -18px 12px"></div>
-    <textarea class="journal-ta" id="j-note" data-i18n-ph="ph_note" placeholder="How was your day? What did you do, skip, think about..." oninput="saveJournal()" onblur="syncUp()" style="min-height:90px"></textarea>
-    <div id="j-saved" style="font-size:10px;color:var(--gr);opacity:0;transition:opacity .5s;text-align:right;margin-top:3px;height:14px"></div>
+    <textarea class="journal-ta" id="j-note" data-i18n-ph="ph_note" placeholder="How was your day? What did you do, skip, think about..." style="min-height:90px"></textarea>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px">
+      <div id="j-saved" style="font-size:10px;color:var(--gr);opacity:0;transition:opacity .5s;height:14px"></div>
+      <button class="ibtn" onclick="saveJournalBtn()" style="padding:7px 16px;font-size:12px;min-height:32px">Save note</button>
+    </div>
+    <div id="j-log" style="margin-top:12px"></div>
   </div>
 </div>
 
@@ -593,10 +624,10 @@ body{
       </div>
     </div>
     <div class="food-inp-row">
-      <input class="inp" type="text" id="food-lbl" data-i18n-ph="ph_foodname" placeholder="Food name">
-      <input class="inp" type="number" id="food-prot-inp" placeholder="g" inputmode="decimal">
-      <input class="inp" type="number" id="food-kcal-inp" placeholder="kcal" inputmode="decimal">
-      <button class="ibtn" onclick="addFoodCustom()">+</button>
+      <input class="inp food-lbl-inp" type="text" id="food-lbl" data-i18n-ph="ph_foodname" placeholder="Food name">
+      <input class="inp" type="number" id="food-prot-inp" placeholder="Protein g" inputmode="decimal">
+      <input class="inp" type="number" id="food-kcal-inp" placeholder="Kcal" inputmode="decimal">
+      <button class="ibtn" onclick="addFoodCustom()" style="white-space:nowrap">+ Add</button>
     </div>
   </div>
   <div class="sl" data-i18n="quick_add">Quick add</div>
@@ -839,9 +870,9 @@ function applyTheme(theme,save=true){
   document.documentElement.setAttribute('data-theme',theme);
   if(save)localStorage.setItem('theme',theme);
   const btn=document.getElementById('theme-btn');
-  if(btn)btn.textContent=theme==='dark'?'☀️':'🌙';
+  if(btn)btn.textContent=theme==='dark'?'☀️':'🌑';
   const meta=document.getElementById('theme-meta');
-  if(meta)meta.content=theme==='dark'?'#000010':'#f2f2f7';
+  if(meta)meta.content=theme==='dark'?'#000010':'#f0f2f8';
   Object.values(charts).forEach(c=>{try{c.destroy();}catch(e){}});
   charts={};
   if(document.getElementById('p-stats')?.classList.contains('on'))renderStats();
@@ -897,7 +928,8 @@ let journal=ls('journal',{});
 let water_log=ls('water_log',{});
 let weight_log=ls('weight_log',[]); // [{date,kg}]
 // journal[date] = {note:''}
-if(!journal[today])journal[today]={note:''};
+if(!journal[today])journal[today]={note:'',entries:[]};
+if(!journal[today].entries)journal[today].entries=[];
 if(!water_log[today])water_log[today]=0;
 // Migrate old protein data → food_log
 (function(){
@@ -1861,8 +1893,10 @@ ${expByCat.map(c=>`    • ${c.n}: ${fmtAmt(c.t)}`).join('\n')||'    (none)'}
     Balance : ${fmtAmt(mI-mE)}
 
 ${'─'.repeat(40)}
-📝 MY NOTE
-${(journal[today]?.note||'').trim()||'(nothing written today)'}
+📝 MY NOTES
+${(journal[today]?.entries||[]).length
+  ?(journal[today].entries).map(e=>`  [${e.time}] ${e.text}`).join('\n')
+  :(journal[today]?.note||'').trim()||'(nothing written today)'}
 
 ${'━'.repeat(40)}
 Це мій щоденний звіт. Проаналізуй мій день повністю:
@@ -2007,7 +2041,12 @@ ${topTxLines||'  (none)'}
 
 ${'─'.repeat(40)}
 📝 DAILY NOTES
-${days7.map((d,i)=>`  ${dayNames[i]} ${d.ds.slice(5)}: ${d.isFuture?'—':d.note||'(nothing written)'}`).join('\n')}
+${days7.map((d,i)=>{
+  if(d.isFuture)return`  ${dayNames[i]} ${d.ds.slice(5)}: —`;
+  const entries=journal[d.ds]?.entries||[];
+  if(entries.length)return`  ${dayNames[i]} ${d.ds.slice(5)}:\n`+entries.map(e=>`    [${e.time}] ${e.text}`).join('\n');
+  return`  ${dayNames[i]} ${d.ds.slice(5)}: ${d.note||'(nothing written)'}`;
+}).join('\n')}
 
 ${'━'.repeat(40)}
 Це мій тижневий звіт. Я хочу повний аналіз:
@@ -2023,20 +2062,45 @@ ${'━'.repeat(40)}
 function showReport(text){const el=document.getElementById('report-out'),btn=document.getElementById('copy-btn');if(el){el.textContent=text;el.style.display='block';}if(btn)btn.style.display='block';}
 function copyReport(){const el=document.getElementById('report-out');if(!el)return;navigator.clipboard.writeText(el.textContent).then(()=>{const btn=document.getElementById('copy-btn');if(btn){btn.textContent='✅ Copied!';setTimeout(()=>{btn.textContent='Copy';},2000);}});}
 
-// ── Settings ──────────────────────────────────────────────────────────────────
 // ── Journal ───────────────────────────────────────────────────────────────────
-function saveJournal(){
+function saveJournalBtn(){
   const n=document.getElementById('j-note');
-  if(!journal[today])journal[today]={note:''};
-  if(n)journal[today].note=n.value;
+  if(!n||!n.value.trim())return;
+  if(!journal[today])journal[today]={note:'',entries:[]};
+  if(!journal[today].entries)journal[today].entries=[];
+  const now=new Date();
+  const time=now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
+  journal[today].entries.push({id:'j'+Date.now(),text:n.value.trim(),time});
+  journal[today].note=n.value.trim();// keep note for report compat
+  n.value='';
   ss('journal',journal);
   const sv=document.getElementById('j-saved');
-  if(sv){sv.textContent='Saved';sv.style.opacity='1';
+  if(sv){sv.textContent='Saved ✓';sv.style.opacity='1';
     clearTimeout(sv._t);sv._t=setTimeout(()=>{sv.style.opacity='0';},1500);}
+  renderJournalLog();
+  syncUp();
+}
+function deleteJournalEntry(id){
+  if(!journal[today]?.entries)return;
+  journal[today].entries=journal[today].entries.filter(e=>e.id!==id);
+  ss('journal',journal);renderJournalLog();syncUp();
+}
+function renderJournalLog(){
+  const el=document.getElementById('j-log');if(!el)return;
+  const entries=(journal[today]?.entries||[]);
+  if(!entries.length){el.innerHTML='';return;}
+  el.innerHTML='<div style="height:.5px;background:var(--bd);margin:0 -18px 10px"></div>'+
+    entries.slice().reverse().map(e=>`
+      <div style="display:flex;gap:8px;align-items:flex-start;padding:7px 0;border-bottom:.5px solid var(--bd)">
+        <span style="font-size:10px;color:var(--tx3);font-family:'Space Mono',monospace;white-space:nowrap;padding-top:2px">${e.time}</span>
+        <span style="flex:1;font-size:12px;color:var(--tx2);line-height:1.5">${e.text.replace(/</g,'&lt;')}</span>
+        <button onclick="deleteJournalEntry('${e.id}')" style="background:none;border:none;color:var(--tx3);font-size:14px;cursor:pointer;padding:0 2px;line-height:1">×</button>
+      </div>`).join('');
+}
+function saveJournal(){// called by render() for compat — just syncs textarea with latest note
 }
 function renderJournal(){
-  const n=document.getElementById('j-note');
-  if(n&&document.activeElement!==n)n.value=journal[today]?.note||'';
+  renderJournalLog();
 }
 
 function renderCfg(){
