@@ -432,6 +432,63 @@ body{
 .flog-del{background:none;border:none;color:var(--tx3);font-size:22px;cursor:pointer;padding:2px 6px;line-height:1;flex-shrink:0;}
 .flog-del:active{color:var(--rd);}
 
+/* ── Meal Planner ────────────────────────────────────────────────────────────── */
+.plan-day-chips{display:flex;gap:7px;margin-bottom:12px;}
+.plan-chip{flex:1;padding:10px 6px;text-align:center;font-size:12px;font-weight:600;
+  background:var(--gl);border:.5px solid var(--bd);border-radius:10px;cursor:pointer;
+  color:var(--tx2);font-family:'Inter',sans-serif;transition:.15s;}
+.plan-chip.active{background:var(--bla);border-color:var(--blb);color:var(--bl);}
+.plan-slot{padding:10px 0 4px;}
+.plan-slot:not(:last-child){border-bottom:.5px solid var(--bd);margin-bottom:6px;}
+.plan-slot-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.plan-slot-title{font-size:11px;font-weight:700;color:var(--tx3);letter-spacing:.06em;text-transform:uppercase;}
+.plan-slot-total{font-size:11px;color:var(--tx3);font-family:'Space Mono',monospace;}
+.plan-item{display:flex;align-items:center;gap:8px;padding:6px 0;}
+.plan-item-name{font-size:12px;font-weight:500;color:var(--tx);flex:1;}
+.plan-item-macros{font-size:10px;color:var(--tx3);font-family:'Space Mono',monospace;white-space:nowrap;}
+.plan-item-del{background:none;border:none;color:var(--tx3);font-size:18px;cursor:pointer;padding:0 2px;line-height:1;flex-shrink:0;}
+.plan-item-del:active{color:var(--rd);}
+.plan-add-btn{width:100%;padding:8px;background:transparent;border:.5px dashed var(--bd);border-radius:9px;
+  font-size:11px;color:var(--tx3);cursor:pointer;text-align:center;margin-top:4px;font-family:'Inter',sans-serif;}
+.plan-add-btn:active{background:var(--bla);border-color:var(--blb);color:var(--bl);}
+.plan-day-total{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;
+  background:var(--gl);border:.5px solid var(--bd);border-radius:11px;margin-top:10px;}
+.plan-day-prot{font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--bl);}
+.plan-day-kcal{font-family:'Space Mono',monospace;font-size:16px;font-weight:700;color:var(--am);}
+/* ── Food Picker Drawer ───────────────────────────────────────────────────────── */
+.picker-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;display:flex;align-items:flex-end;
+  opacity:0;pointer-events:none;transition:opacity .2s;}
+.picker-overlay.open{opacity:1;pointer-events:all;}
+.picker-drawer{background:var(--bg);border-radius:20px 20px 0 0;width:100%;max-height:84vh;
+  display:flex;flex-direction:column;transform:translateY(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);}
+.picker-overlay.open .picker-drawer{transform:translateY(0);}
+.picker-handle{width:36px;height:4px;background:rgba(255,255,255,.18);border-radius:99px;margin:10px auto 6px;}
+[data-theme="light"] .picker-handle{background:rgba(0,0,0,.14);}
+.picker-head{padding:0 16px 8px;display:flex;align-items:center;gap:10px;}
+.picker-title{font-size:15px;font-weight:700;color:var(--tx);flex:1;}
+.picker-close-btn{background:none;border:none;color:var(--tx3);font-size:22px;cursor:pointer;padding:2px 6px;line-height:1;}
+.picker-search-wrap{padding:0 14px 8px;}
+.picker-body{flex:1;overflow-y:auto;padding:0 14px 24px;}
+.picker-cat-lbl{font-size:10px;font-weight:700;letter-spacing:.07em;color:var(--tx3);
+  text-transform:uppercase;padding:10px 0 5px;}
+.picker-item{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:.5px solid var(--bd);cursor:pointer;}
+.picker-item:last-of-type{border-bottom:none;}
+.picker-item:active{opacity:.65;}
+.picker-item-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.picker-item-name{font-size:13px;font-weight:500;color:var(--tx);flex:1;}
+.picker-item-macros{text-align:right;}
+.picker-item-prot{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:var(--gr);}
+.picker-item-kcal{font-size:10px;color:var(--tx3);}
+.picker-custom-row{display:flex;gap:6px;padding:10px 0 14px;border-bottom:.5px solid var(--bd);margin-bottom:4px;}
+/* ── Grocery List ────────────────────────────────────────────────────────────── */
+.groc-cat{font-size:10px;font-weight:700;letter-spacing:.07em;color:var(--tx3);
+  text-transform:uppercase;padding:10px 0 5px;}
+.groc-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:.5px solid var(--bd);}
+.groc-item:last-child{border-bottom:none;}
+.groc-item input[type=checkbox]{width:17px;height:17px;accent-color:var(--bl);flex-shrink:0;cursor:pointer;}
+.groc-item-name{font-size:13px;font-weight:500;color:var(--tx);flex:1;}
+.groc-item-qty{font-size:10px;color:var(--tx3);font-family:'Space Mono',monospace;}
+.groc-item.groc-checked .groc-item-name{text-decoration:line-through;color:var(--tx3);}
 /* ── Workout tab ─────────────────────────────────────────────────────────────── */
 .wo-ex{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:.5px solid var(--bd);}
 .wo-ex:last-child{border-bottom:none;}
@@ -614,13 +671,13 @@ body{
         <div class="nutr-val" id="food-prot-val" style="color:var(--bl)">0<span style="font-size:14px;opacity:.6">g</span></div>
         <div class="pb-lbl"><span data-i18n="protein">Protein</span><span id="food-prot-pct">0%</span></div>
         <div class="pb-bg"><div class="pb-fill" id="food-prot-bar" style="width:0%;background:var(--bl)"></div></div>
-        <div style="font-size:10px;color:var(--tx3);margin-top:4px" data-i18n="goal_prot">goal 150g</div>
+        <div style="font-size:10px;color:var(--tx3);margin-top:4px" data-i18n="goal_prot">goal 170g</div>
       </div>
       <div>
         <div class="nutr-val" id="food-kcal-val" style="color:var(--am)">0<span style="font-size:14px;opacity:.6">kcal</span></div>
         <div class="pb-lbl"><span data-i18n="calories">Calories</span><span id="food-kcal-pct">0%</span></div>
         <div class="pb-bg"><div class="pb-fill" id="food-kcal-bar" style="width:0%;background:var(--am)"></div></div>
-        <div style="font-size:10px;color:var(--tx3);margin-top:4px" data-i18n="goal_kcal">goal 2000 kcal</div>
+        <div style="font-size:10px;color:var(--tx3);margin-top:4px" data-i18n="goal_kcal">goal 2100 kcal</div>
       </div>
     </div>
     <div class="food-inp-row">
@@ -637,18 +694,46 @@ body{
   <div class="sl" data-i18n="todays_log">Today's log</div>
   <div class="card" id="food-log-list"><div style="font-size:12px;color:var(--tx3);padding:8px 0;text-align:center" data-i18n="nothing_logged">Nothing logged yet</div></div>
 
-  <div class="sl" data-i18n="recipes">Recipes</div>
+  <div class="sl">Recipes</div>
   <div class="card" style="margin-bottom:10px">
     <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
-      <button class="curr-btn active" onclick="setRecipeGoal('all',this)" data-i18n="all">All</button>
-      <button class="curr-btn" onclick="setRecipeGoal('cut',this)" style="border-color:rgba(255,69,58,0.4);color:var(--rd)">🔥 <span data-i18n="cut">Cut</span></button>
-      <button class="curr-btn" onclick="setRecipeGoal('bulk',this)" style="border-color:rgba(48,209,88,0.4);color:var(--gr)">💪 <span data-i18n="bulk">Bulk</span></button>
-      <button class="curr-btn" onclick="setRecipeGoal('both',this)" style="border-color:rgba(10,132,255,0.4);color:var(--bl)">⚖ <span data-i18n="recomp_label">Recomp</span></button>
+      <button class="curr-btn active" onclick="setRecipeGoal('all',this)">All</button>
+      <button class="curr-btn" onclick="setRecipeGoal('cut',this)" style="border-color:rgba(255,69,58,0.4);color:var(--rd)">🔥 Cut</button>
+      <button class="curr-btn" onclick="setRecipeGoal('bulk',this)" style="border-color:rgba(48,209,88,0.4);color:var(--gr)">💪 Bulk</button>
+      <button class="curr-btn" onclick="setRecipeGoal('both',this)" style="border-color:rgba(10,132,255,0.4);color:var(--bl)">⚖ Recomp</button>
     </div>
-    <input class="inp" id="recipe-ing" data-i18n-ph="ph_ing" placeholder="Type ingredients you have (e.g. chicken rice egg)…" oninput="renderRecipes()" style="width:100%;box-sizing:border-box">
-    <div style="font-size:10px;color:var(--tx3);margin-top:6px" data-i18n="sep_ing">Separate with spaces or commas · shows best matches first</div>
+    <input class="inp" id="recipe-ing" placeholder="Search by name or ingredient…" oninput="renderRecipes()" style="width:100%;box-sizing:border-box">
   </div>
   <div id="recipe-results"></div>
+
+  <div class="sl">🧳 Work Lunch Plan</div>
+  <div class="plan-day-chips" id="plan-day-chips">
+    <button class="plan-chip active" onclick="setPlanDay(0,this)">Today</button>
+    <button class="plan-chip" onclick="setPlanDay(1,this)">Tomorrow</button>
+    <button class="plan-chip" onclick="setPlanDay(2,this)">+2 days</button>
+  </div>
+  <div class="card" id="plan-day-card"></div>
+  <button class="ibtn blue" style="width:100%;text-align:center;padding:12px;margin-top:8px;display:block;box-sizing:border-box" onclick="toggleGroceryList()">🛒 Grocery List (3 days)</button>
+  <div id="plan-grocery-wrap" style="display:none">
+    <div class="sl">🛒 Grocery List</div>
+    <div class="card" id="groc-list-body"></div>
+    <button class="ibtn red" style="width:100%;text-align:center;padding:10px;margin-top:6px;display:block;box-sizing:border-box" onclick="clearGroceryChecks()">Clear all checks</button>
+  </div>
+</div>
+
+<!-- Food picker drawer -->
+<div class="picker-overlay" id="picker-overlay" onclick="pickerOverlayClose(event)">
+  <div class="picker-drawer">
+    <div class="picker-handle"></div>
+    <div class="picker-head">
+      <div class="picker-title" id="picker-title">Add food</div>
+      <button class="picker-close-btn" onclick="closePicker()">×</button>
+    </div>
+    <div class="picker-search-wrap">
+      <input class="inp" type="search" id="picker-search" placeholder="Search food…" oninput="renderPickerList()" style="width:100%;box-sizing:border-box">
+    </div>
+    <div class="picker-body" id="picker-body"></div>
+  </div>
 </div>
 
 <!-- WORKOUT -->
@@ -731,7 +816,7 @@ const I18N={
     habits_week:'Habits — this week',money_month:'Money — this month',protein_7d:'Protein — 7 days',
     income:'Income',expenses:'Expenses',balance:'Balance',income_up:'INCOME',expenses_up:'EXPENSES',
     per_month:'/ month',add_income:'+ Income',add_expense:'− Expense',recent:'Recent',
-    protein:'Protein',calories:'Calories',goal_prot:'goal 150g',goal_kcal:'goal 2000 kcal',
+    protein:'Protein',calories:'Calories',goal_prot:'goal 170g',goal_kcal:'goal 2100 kcal',
     quick_add:'Quick add',todays_log:"Today's log",recipes:'Recipes',
     all:'All',cut:'Cut',bulk:'Bulk',sep_ing:'Separate by spaces or commas · best matches first',
     all_hist:'All-time history',personal_bests:'Personal bests',
@@ -759,7 +844,7 @@ const I18N={
     habits_week:'Звички — цей тиждень',money_month:'Гроші — цей місяць',protein_7d:'Білок — 7 днів',
     income:'Дохід',expenses:'Витрати',balance:'Баланс',income_up:'ДОХІД',expenses_up:'ВИТРАТИ',
     per_month:'/ місяць',add_income:'+ Дохід',add_expense:'− Витрата',recent:'Останні операції',
-    protein:'Білок',calories:'Калорії',goal_prot:'ціль 150г',goal_kcal:'ціль 2000 ккал',
+    protein:'Білок',calories:'Калорії',goal_prot:'ціль 170г',goal_kcal:'ціль 2100 ккал',
     quick_add:'Швидке додавання',todays_log:'Журнал за сьогодні',recipes:'Рецепти',
     all:'Всі',cut:'Сушка',bulk:'Маса',sep_ing:'Розділяй пробілами або комами · найкращі збіги першими',
     all_hist:'Вся історія',personal_bests:'Особисті рекорди',
@@ -797,7 +882,7 @@ function toggleLang(){
   render();
   const page=document.querySelector('.page.on')?.id?.replace('p-','');
   if(page==='stats')renderStats();
-  if(page==='food'){renderFoodPage();renderRecipes();}
+  if(page==='food')renderFoodPage();
   if(page==='workout')renderWorkout();
   if(page==='money')renderMoneyPage();
 }
@@ -922,6 +1007,8 @@ let habits=ls('habits',defHabits);
 let checks=ls('checks',{});
 let money=ls('money',{});
 let food_log=ls('food_log',{});
+let meal_plan=ls('meal_plan',{});
+let groc_checks=ls('groc_checks',{});
 let workout_log=ls('workout_log',{});
 let pb=ls('pb',{pushups:0,pullups:0,run3km:0,updated:''});
 let journal=ls('journal',{});
@@ -969,6 +1056,7 @@ const QA_FOODS=[
   {id:'kefir',        cat:'dairy', icon:'local_drink',      color:'#6AD4C8', name:'Kefir 250ml',        protein:7, kcal:90},
   {id:'cheese_sl',    cat:'dairy', icon:'breakfast_dining', color:'#FF8C00', name:'Cheese slice 30g',   protein:7, kcal:110},
   {id:'cottage100',   cat:'dairy', icon:'breakfast_dining', color:'#FFB07C', name:'Cottage cheese 100g',protein:11,kcal:98},
+  {id:'cottage200',   cat:'dairy', icon:'breakfast_dining', color:'#FF9060', name:'Cottage cheese 200g',protein:22,kcal:196},
   // Meat & Fish
   {id:'chicken100',   cat:'meat',  icon:'lunch_dining',     color:'#FF8C69', name:'Chicken 100g',       protein:31,kcal:165},
   {id:'chicken150',   cat:'meat',  icon:'lunch_dining',     color:'#FF6B4A', name:'Chicken 150g',       protein:47,kcal:248},
@@ -981,34 +1069,33 @@ const QA_FOODS=[
   {id:'salmon100',    cat:'meat',  icon:'set_meal',         color:'#FF9E80', name:'Salmon 100g',        protein:25,kcal:208},
   {id:'sardines',     cat:'meat',  icon:'set_meal',         color:'#5E8FB5', name:'Sardines can',       protein:22,kcal:190},
   {id:'shrimp100',    cat:'meat',  icon:'ramen_dining',     color:'#FF6B82', name:'Shrimp 100g',        protein:24,kcal:106},
-  {id:'sausage',      cat:'meat',  icon:'fastfood',         color:'#B83232', name:'Sausage 2 pcs',      protein:12,kcal:280},
   // Grains & Carbs
   {id:'rice_dry100',  cat:'carbs', icon:'rice_bowl',        color:'#F0D080', name:'Rice dry 100g',      protein:7, kcal:360},
   {id:'rice_ck200',   cat:'carbs', icon:'rice_bowl',        color:'#E8C869', name:'Rice cooked 200g',   protein:4, kcal:260},
+  {id:'brice_ck200',  cat:'carbs', icon:'rice_bowl',        color:'#A08040', name:'Brown rice 200g',    protein:4, kcal:220},
   {id:'pasta_dry100', cat:'carbs', icon:'dinner_dining',    color:'#FFD166', name:'Pasta dry 100g',     protein:13,kcal:350},
   {id:'oats80',       cat:'carbs', icon:'breakfast_dining', color:'#C8A96E', name:'Oats 80g',           protein:11,kcal:300},
   {id:'bread1',       cat:'carbs', icon:'bakery_dining',    color:'#C68642', name:'Bread 1 slice',      protein:3, kcal:80},
   {id:'bread2',       cat:'carbs', icon:'bakery_dining',    color:'#A0692A', name:'Bread 2 slices',     protein:6, kcal:160},
+  {id:'sweet_potato200',cat:'carbs',icon:'nutrition',       color:'#FF8C00', name:'Sweet potato 200g',  protein:4, kcal:172},
   {id:'potato200',    cat:'carbs', icon:'nutrition',        color:'#D4A92A', name:'Potato 200g',        protein:4, kcal:154},
   {id:'buckwheat100', cat:'carbs', icon:'grain',            color:'#7D6148', name:'Buckwheat 100g',     protein:13,kcal:343},
-  {id:'tortilla',     cat:'carbs', icon:'flatware',         color:'#E8D5A3', name:'Tortilla wrap',      protein:4, kcal:120},
+  {id:'rice_cakes',   cat:'carbs', icon:'bakery_dining',    color:'#D4C8A8', name:'Rice cakes ×3',      protein:2, kcal:105},
   // Vegetables & Fruit
   {id:'broccoli200',  cat:'veg',   icon:'eco',              color:'#30D158', name:'Broccoli 200g',      protein:5, kcal:70},
   {id:'spinach100',   cat:'veg',   icon:'grass',            color:'#1E8C3C', name:'Spinach 100g',       protein:3, kcal:23},
   {id:'tomato',       cat:'veg',   icon:'nutrition',        color:'#FF453A', name:'Tomato',             protein:1, kcal:22},
   {id:'cucumber',     cat:'veg',   icon:'eco',              color:'#52B947', name:'Cucumber',           protein:1, kcal:16},
+  {id:'mixed_veg200', cat:'veg',   icon:'spa',              color:'#28A428', name:'Mixed veg 200g',     protein:5, kcal:60},
   {id:'banana',       cat:'veg',   icon:'nutrition',        color:'#FFE03A', name:'Banana',             protein:1, kcal:89},
   {id:'apple',        cat:'veg',   icon:'nutrition',        color:'#A8D060', name:'Apple',              protein:0, kcal:72},
   {id:'orange',       cat:'veg',   icon:'nutrition',        color:'#FF8C00', name:'Orange',             protein:1, kcal:62},
   // Snacks & Extras
-  {id:'almonds30',    cat:'extras',icon:'spa',              color:'#C8904A', name:'Almonds 30g',        protein:6, kcal:173},
   {id:'peanuts30',    cat:'extras',icon:'spa',              color:'#B5804A', name:'Peanuts 30g',        protein:8, kcal:170},
   {id:'pb2tbsp',      cat:'extras',icon:'spa',              color:'#8B5A2B', name:'Peanut butter 2tbsp',protein:8, kcal:190},
   {id:'protein_bar',  cat:'extras',icon:'fitness_center',  color:'#BF5AF2', name:'Protein bar',        protein:20,kcal:210},
   {id:'protein_shake',cat:'extras',icon:'blender',         color:'#5E5CE6', name:'Protein shake',      protein:25,kcal:150},
   {id:'whey_scoop',   cat:'extras',icon:'fitness_center',  color:'#9966CC', name:'Whey 1 scoop',       protein:22,kcal:120},
-  {id:'dark_choc',    cat:'extras',icon:'cookie',          color:'#6B3A2A', name:'Dark choc 30g',      protein:3, kcal:165},
-  {id:'honey_tbsp',   cat:'extras',icon:'water_drop',      color:'#FFC107', name:'Honey 1 tbsp',       protein:0, kcal:64},
   {id:'olive_oil',    cat:'extras',icon:'opacity',         color:'#7CB518', name:'Olive oil 1 tbsp',   protein:0, kcal:119},
 ];
 
@@ -1030,10 +1117,11 @@ async function dbSet(key,value){if(!SB)return;try{await SB.from('app_data').upse
 async function syncDown(){
   setSyncStatus('syncing');
   try{
-    const[c,m,fl,wl,h,cf,pbr,jr,watl,wtl]=await Promise.all([dbGet('checks'),dbGet('money'),dbGet('food_log'),dbGet('workout_log'),dbGet('habits'),dbGet('cfg'),dbGet('pb'),dbGet('journal'),dbGet('water_log'),dbGet('weight_log')]);
+    const[c,m,fl,mp,wl,h,cf,pbr,jr,watl,wtl]=await Promise.all([dbGet('checks'),dbGet('money'),dbGet('food_log'),dbGet('meal_plan'),dbGet('workout_log'),dbGet('habits'),dbGet('cfg'),dbGet('pb'),dbGet('journal'),dbGet('water_log'),dbGet('weight_log')]);
     if(c){checks={...c,...checks};ss('checks',checks);}
     if(m){money={...m,...money};ss('money',money);}
     if(fl){food_log={...fl,...food_log};ss('food_log',food_log);}
+    if(mp){meal_plan={...mp,...meal_plan};ss('meal_plan',meal_plan);}
     if(wl){workout_log={...wl,...workout_log};ss('workout_log',workout_log);}
     if(h){habits=h;ss('habits',habits);}
     if(cf){cfg={...cf,...cfg};ss('cfg',cfg);}
@@ -1050,7 +1138,7 @@ async function syncDown(){
 }
 async function syncUp(){
   setSyncStatus('syncing');
-  try{await Promise.all([dbSet('checks',checks),dbSet('money',money),dbSet('food_log',food_log),dbSet('workout_log',workout_log),dbSet('habits',habits),dbSet('cfg',cfg),dbSet('pb',pb),dbSet('journal',journal),dbSet('water_log',water_log),dbSet('weight_log',weight_log)]);setSyncStatus('ok');}
+  try{await Promise.all([dbSet('checks',checks),dbSet('money',money),dbSet('food_log',food_log),dbSet('meal_plan',meal_plan),dbSet('workout_log',workout_log),dbSet('habits',habits),dbSet('cfg',cfg),dbSet('pb',pb),dbSet('journal',journal),dbSet('water_log',water_log),dbSet('weight_log',weight_log)]);setSyncStatus('ok');}
   catch(e){setSyncStatus('offline');}
 }
 function setSyncStatus(s){
@@ -1133,183 +1221,114 @@ function render(){
 // ── Recipes ───────────────────────────────────────────────────────────────────
 let recipeGoalFilter='all';
 const RECIPES=[
-  // ── CUT (fat loss, high protein, lower cal) ───────────────────────────────
-  {id:'r01',goal:'cut', name:'Egg White & Spinach Omelette',   protein:28,kcal:220,time:'8 min',
-   ing:['egg','spinach'],
-   steps:['Whisk 4 egg whites + 1 whole egg, season','Pour into non-stick pan on medium heat','Add fresh spinach when edges set','Fold omelette, cook 2 more min']},
-  {id:'r02',goal:'cut', name:'Tuna & Cucumber Salad',           protein:30,kcal:180,time:'5 min',
-   ing:['tuna','cucumber','lemon','olive oil'],
-   steps:['Drain tuna into bowl','Dice cucumber, add to bowl','Squeeze lemon + drizzle olive oil','Season with salt & pepper, toss']},
-  {id:'r03',goal:'cut', name:'Baked Chicken & Broccoli',        protein:50,kcal:340,time:'25 min',
-   ing:['chicken','broccoli'],
-   steps:['Season chicken breast with salt, pepper, garlic','Bake at 200°C for 20 min','Steam broccoli 5 min','Serve together, drizzle olive oil']},
-  {id:'r04',goal:'cut', name:'Sardine & Tomato Toast',          protein:24,kcal:250,time:'5 min',
-   ing:['sardines','tomato','bread'],
-   steps:['Toast 1 slice bread','Mash sardines on toast','Top with sliced tomato','Add lemon juice + black pepper']},
-  {id:'r05',goal:'cut', name:'Shrimp Stir-Fry',                protein:26,kcal:220,time:'12 min',
-   ing:['shrimp','broccoli','garlic'],
-   steps:['Heat pan with olive oil, add garlic','Add shrimp, cook 3 min each side','Add broccoli florets, stir-fry 4 min','Season with soy sauce + chili flakes']},
-  {id:'r06',goal:'cut', name:'Turkey Lettuce Wraps',            protein:32,kcal:280,time:'15 min',
-   ing:['turkey','tomato','cucumber'],
-   steps:['Cook turkey mince, season with paprika + cumin','Wash large lettuce leaves','Fill with turkey, diced tomato, cucumber','Wrap and eat — no bread needed']},
-  {id:'r07',goal:'cut', name:'Kefir Protein Smoothie',          protein:28,kcal:220,time:'3 min',
-   ing:['kefir','banana','protein'],
-   steps:['Pour 250ml kefir into blender','Add 1 banana','Add 1 scoop protein powder','Blend 30 sec, drink immediately']},
-  {id:'r08',goal:'cut', name:'Tuna-Stuffed Tomatoes',           protein:28,kcal:190,time:'8 min',
-   ing:['tuna','tomato','yogurt'],
-   steps:['Cut tops off large tomatoes, scoop out inside','Mix tuna with yogurt + seasoning','Fill tomatoes with mixture','Refrigerate 10 min or serve immediately']},
-  {id:'r09',goal:'cut', name:'Salmon & Cucumber Plate',         protein:28,kcal:260,time:'5 min',
-   ing:['salmon','cucumber','lemon'],
-   steps:['Slice cooked or smoked salmon','Slice cucumber thinly','Arrange on plate','Squeeze lemon, add black pepper']},
-  {id:'r10',goal:'cut', name:'Baked Salmon & Broccoli',         protein:36,kcal:320,time:'20 min',
-   ing:['salmon','broccoli','lemon'],
-   steps:['Season salmon with lemon, salt, pepper','Bake at 200°C for 15 min','Steam broccoli 5 min','Serve with lemon wedge']},
-  {id:'r11',goal:'cut', name:'Egg Drop Vegetable Soup',         protein:22,kcal:180,time:'15 min',
-   ing:['egg','spinach','broccoli'],
-   steps:['Boil 400ml water with stock cube','Add chopped broccoli, simmer 5 min','Add spinach leaves','Whisk 2 eggs, pour slowly while stirring','Season with soy sauce']},
-  {id:'r12',goal:'cut', name:'Twaróg & Herb Spread',           protein:22,kcal:160,time:'5 min',
+  // ── CUT ───────────────────────────────────────────────────────────────────
+  {id:'r01',goal:'cut', name:'Honey-Garlic Chicken + Broccoli', protein:50,kcal:370,time:'25 min',
+   ing:['chicken','broccoli','garlic'],
+   steps:['Mix 1 tbsp soy sauce + 1 tsp honey + 3 minced garlic cloves','Coat chicken breast in marinade, rest 10 min','Pan-fry on medium-high 5 min each side until caramelised','Steam broccoli 5 min','Drizzle pan juices over everything']},
+  {id:'r02',goal:'cut', name:'Shakshuka',                        protein:24,kcal:280,time:'18 min',
+   ing:['egg','tomato','garlic','spinach'],
+   steps:['Fry 3 minced garlic cloves in olive oil 1 min','Add diced tomatoes + 1 tsp paprika + pinch cumin + chili flakes','Simmer 8 min until thickened','Make 3 wells, crack an egg into each','Cover and cook 5 min — yolks still runny','Top with spinach, season generously']},
+  {id:'r03',goal:'cut', name:'Spicy Sriracha Tuna Bowl',         protein:32,kcal:280,time:'10 min',
+   ing:['tuna','cucumber','tomato','lemon'],
+   steps:['Drain 2 tuna cans into bowl','Mix with 1 tsp sriracha + squeeze lemon + pinch sesame oil','Dice cucumber + tomato, add to bowl','Season with salt + pepper','Eat as salad or over 100g rice for bulk version']},
+  {id:'r04',goal:'cut', name:'Greek Yogurt Marinated Chicken',   protein:48,kcal:340,time:'30 min',
+   ing:['chicken','yogurt','garlic','lemon'],
+   steps:['Mix 150g yogurt + 2 garlic cloves + lemon zest + 1 tsp oregano + salt','Coat chicken, marinate 20+ min (overnight is better)','Grill on high heat 6 min each side — char marks = flavour','Rest 3 min before slicing','Serve with cucumber + tomato side']},
+  {id:'r05',goal:'cut', name:'Salmon with Herb Crust',           protein:36,kcal:320,time:'20 min',
+   ing:['salmon','lemon','garlic'],
+   steps:['Mix 2 minced garlic + lemon zest + dried dill + olive oil','Press mixture onto salmon fillet top','Bake at 200°C for 14 min — edges should just start to flake','Squeeze lemon over, serve immediately','Great with spinach sautéed in same garlic pan']},
+  {id:'r06',goal:'cut', name:'Tuna Niçoise Bowl',                protein:34,kcal:310,time:'15 min',
+   ing:['tuna','egg','tomato','cucumber','lemon'],
+   steps:['Boil 2 eggs 7 min (jammy yolks)','Drain tuna, flake into bowl','Add halved eggs + sliced tomato + cucumber','Dress with lemon + olive oil + pinch oregano + black pepper','Season well — simple but satisfying']},
+  {id:'r07',goal:'cut', name:'Thai-Style Turkey Mince',          protein:38,kcal:300,time:'15 min',
+   ing:['turkey','garlic','tomato'],
+   steps:['Brown turkey mince in hot pan, break apart well','Add 3 garlic cloves + 1 tbsp fish sauce or soy + chili flakes','Cook 5 min on high, let it get slightly crispy','Add diced tomato, cook 2 more min','Eat as salad topping or with 100g rice']},
+  {id:'r08',goal:'cut', name:'Baked Cod & Tomatoes',             protein:34,kcal:240,time:'20 min',
+   ing:['fish','tomato','garlic','lemon'],
+   steps:['Place fish fillet in baking dish','Top with diced tomato + sliced garlic + olive oil + oregano','Season generously with salt + black pepper','Bake at 200°C for 15 min','Finish with lemon squeeze + fresh herbs if available']},
+  {id:'r09',goal:'cut', name:'Scrambled Eggs with Smoked Salmon',protein:30,kcal:310,time:'8 min',
+   ing:['egg','salmon'],
+   steps:['Whisk 3 eggs with splash of milk + pinch salt','Cook on lowest heat, stirring slowly — do not rush','Remove from heat just before fully set (residual heat finishes it)','Top with sliced smoked salmon','Serve on 1 slice bread or alone']},
+  {id:'r10',goal:'cut', name:'Twaróg Bowl with Cucumber & Dill', protein:26,kcal:190,time:'5 min',
    ing:['twarog','cucumber','garlic'],
-   steps:['Mix twaróg with minced garlic','Add finely diced cucumber','Season with salt and dill','Eat on 1 slice bread or as protein snack']},
-  {id:'r13',goal:'cut', name:'Boiled Eggs & Tomato Plate',      protein:18,kcal:190,time:'12 min',
-   ing:['egg','tomato'],
-   steps:['Boil 3 eggs for 8 min','Peel and halve','Slice tomato','Drizzle olive oil, season with salt & pepper']},
-  {id:'r14',goal:'cut', name:'Tuna & Spinach Salad',            protein:28,kcal:200,time:'5 min',
-   ing:['tuna','spinach','tomato','lemon'],
-   steps:['Drain tuna into bowl','Add fresh spinach + diced tomato','Squeeze lemon + olive oil','Toss, season, serve']},
-  {id:'r15',goal:'cut', name:'Kefir & Twaróg Bowl',            protein:26,kcal:180,time:'3 min',
-   ing:['kefir','twarog'],
-   steps:['Mix kefir + twaróg until smooth','Add salt + dill for savory, or banana for sweet','Stir well','Eat as breakfast or snack']},
-  {id:'r16',goal:'cut', name:'Cottage Cheese & Tomato Bowl',    protein:22,kcal:195,time:'3 min',
-   ing:['cottage','tomato','olive oil'],
-   steps:['Spoon cottage cheese into bowl','Add sliced tomato','Drizzle olive oil','Season with salt + black pepper']},
-  {id:'r17',goal:'cut', name:'Scrambled Eggs & Spinach',        protein:24,kcal:240,time:'8 min',
-   ing:['egg','spinach','cheese'],
-   steps:['Whisk 3 eggs with splash of milk','Wilt spinach in pan 1 min','Add eggs, scramble gently on low heat','Add cheese at the end, serve immediately']},
-  {id:'r18',goal:'cut', name:'Baked Fish & Veggies',            protein:34,kcal:270,time:'22 min',
-   ing:['tuna','broccoli','lemon','garlic'],
-   steps:['Season fish with lemon, garlic, salt','Bake at 200°C 15 min','Roast broccoli alongside last 10 min','Serve with lemon wedge']},
-  // ── BULK (muscle building, high protein + carbs) ──────────────────────────
-  {id:'r19',goal:'bulk', name:'Oatmeal Power Bowl',             protein:30,kcal:520,time:'10 min',
+   steps:['Whip 250g twaróg with fork until smooth','Add 1 minced garlic clove + generous dill + salt','Fold in finely diced cucumber','Drizzle with olive oil, crack black pepper on top','Eat as is or spread on 1-2 slices bread']},
+  // ── BULK ──────────────────────────────────────────────────────────────────
+  {id:'r11',goal:'bulk', name:'Chicken Shawarma Rice Bowl',      protein:55,kcal:630,time:'30 min',
+   ing:['chicken','rice','yogurt','garlic','lemon'],
+   steps:['Mix 1 tsp cumin + 1 tsp paprika + turmeric + garlic + lemon + olive oil','Marinate chicken 15 min, cook in hot pan 5 min each side until dark','Cook 100g rice, mix with pinch cumin','Slice chicken over rice','Garlic yogurt sauce: 100g yogurt + garlic + lemon']},
+  {id:'r12',goal:'bulk', name:'Teriyaki Beef & Rice',            protein:42,kcal:620,time:'25 min',
+   ing:['beef','rice','garlic'],
+   steps:['Slice beef thin, cook in very hot pan 2 min each side','Add 2 tbsp soy sauce + 1 tsp honey + minced garlic','Let sauce caramelise 1 min on high heat','Cook 100g rice separately','Serve beef over rice, pour sauce on top']},
+  {id:'r13',goal:'bulk', name:'Oatmeal Power Bowl',              protein:30,kcal:520,time:'10 min',
    ing:['oats','egg','banana','milk'],
-   steps:['Cook 80g oats in milk','Scramble 2 eggs separately','Slice banana over oats','Top with eggs + peanut butter if available']},
-  {id:'r20',goal:'bulk', name:'Big Chicken Rice Bowl',          protein:55,kcal:620,time:'30 min',
-   ing:['chicken','rice'],
-   steps:['Cook 100g dry rice','Grill 200g chicken breast with seasoning','Slice chicken over rice','Add sauce of choice + vegetables']},
-  {id:'r21',goal:'bulk', name:'Beef Bolognese',                 protein:40,kcal:580,time:'25 min',
-   ing:['beef','pasta','tomato'],
-   steps:['Brown 200g beef mince in pan','Add diced tomato, garlic, oregano','Simmer 10 min','Cook 100g pasta al dente','Combine, season generously']},
-  {id:'r22',goal:'bulk', name:'Tuna Pasta',                     protein:38,kcal:520,time:'15 min',
-   ing:['tuna','pasta','tomato'],
-   steps:['Cook 100g pasta','Drain tuna can','Mix pasta with tuna + canned tomato + olive oil','Season with garlic, salt, pepper','Heat through 3 min']},
-  {id:'r23',goal:'bulk', name:'Peanut Butter Oats',             protein:22,kcal:480,time:'8 min',
-   ing:['oats','peanut','milk','banana'],
-   steps:['Cook 80g oats in milk','Stir in 2 tbsp peanut butter','Slice banana on top','Add honey if desired — easy 500 kcal meal']},
-  {id:'r24',goal:'bulk', name:'Chicken & Potato Mash',          protein:48,kcal:600,time:'30 min',
-   ing:['chicken','potato','milk'],
-   steps:['Boil 200g potato, mash with milk + butter','Grill chicken breast with seasoning','Serve chicken over mash','Drizzle olive oil, season well']},
-  {id:'r25',goal:'bulk', name:'Salmon Rice Bowl',               protein:34,kcal:540,time:'20 min',
-   ing:['salmon','rice','cucumber'],
-   steps:['Cook rice','Pan-fry or bake salmon 12 min','Slice cucumber','Assemble bowl: rice + salmon + cucumber','Season with soy sauce + lemon']},
-  {id:'r26',goal:'bulk', name:'Egg Fried Rice',                 protein:24,kcal:480,time:'15 min',
-   ing:['egg','rice'],
-   steps:['Use cold leftover rice (best) or cook fresh','Heat wok hot, scramble 3 eggs','Add rice, stir-fry 3 min','Season with soy sauce + sesame oil','Add vegetables if available']},
-  {id:'r27',goal:'bulk', name:'Beef & Rice Bowl',               protein:42,kcal:620,time:'25 min',
-   ing:['beef','rice'],
-   steps:['Cook rice','Sear 200g beef strips in very hot pan','Season with soy sauce, garlic, ginger','Serve beef over rice','Top with spring onion if available']},
-  {id:'r28',goal:'bulk', name:'Mass Gainer Shake',              protein:45,kcal:680,time:'3 min',
+   steps:['Cook 80g oats in milk, stir often — 5 min','Scramble 2 eggs in separate pan with butter','Slice banana over oats','Top with eggs + 1 tbsp peanut butter','Season eggs with salt — sweet + savoury combo works']},
+  {id:'r14',goal:'bulk', name:'Salmon & Roasted Potatoes',       protein:38,kcal:580,time:'35 min',
+   ing:['salmon','potato','garlic','lemon'],
+   steps:['Cube potatoes, toss in olive oil + paprika + salt','Roast at 220°C for 25 min until crispy edges','Season salmon with lemon zest + garlic + salt','Pan-sear 4 min each side on high heat — skin side first','Serve together with lemon wedge']},
+  {id:'r15',goal:'bulk', name:'Big Protein Pasta',               protein:48,kcal:640,time:'20 min',
+   ing:['pasta','chicken','tomato','garlic','cheese'],
+   steps:['Cook 100g pasta al dente, save 50ml pasta water','Pan-fry diced chicken breast with garlic 5 min','Add diced tomato + pasta water, simmer 3 min','Toss pasta in sauce','Finish with grated cheese + black pepper generously']},
+  {id:'r16',goal:'bulk', name:'Egg Fried Rice',                  protein:28,kcal:510,time:'12 min',
+   ing:['egg','rice','garlic'],
+   steps:['Use cold leftover rice if possible (less sticky)','Heat wok very hot, add oil','Scramble 3 eggs in wok, push aside','Add rice, press flat, let it sit 1 min for crust','Season with soy sauce + sesame oil + garlic','Toss everything together on high heat']},
+  {id:'r17',goal:'bulk', name:'Chicken & Buckwheat with Herbs',  protein:50,kcal:530,time:'25 min',
+   ing:['chicken','buckwheat','garlic'],
+   steps:['Cook 100g buckwheat in salted water','Pan-fry chicken with garlic + thyme in butter — baste constantly','Let buckwheat absorb all water, season with olive oil + salt','Rest chicken 3 min, slice against grain','Serve over buckwheat, add lemon squeeze']},
+  {id:'r18',goal:'bulk', name:'Mass Builder Shake',              protein:45,kcal:680,time:'3 min',
    ing:['milk','oats','banana','protein','peanut'],
-   steps:['Add 250ml milk to blender','Add 80g oats + banana','Add 2 scoops protein + 2 tbsp peanut butter','Blend until smooth','Drink immediately after workout']},
-  {id:'r29',goal:'bulk', name:'Pasta with Chicken & Cheese',    protein:48,kcal:640,time:'20 min',
-   ing:['pasta','chicken','cheese'],
-   steps:['Cook 100g pasta','Grill chicken breast, dice into pieces','Toss pasta with chicken','Add grated cheese + olive oil','Season with black pepper']},
-  {id:'r30',goal:'bulk', name:'Buckwheat & Beef Bowl',          protein:38,kcal:560,time:'25 min',
-   ing:['buckwheat','beef'],
-   steps:['Cook 100g buckwheat','Brown 150g beef mince or strips','Season with salt, pepper, paprika','Combine buckwheat + beef','Add tomato on side']},
-  {id:'r31',goal:'bulk', name:'Oats & Egg White Pancakes',      protein:28,kcal:380,time:'15 min',
-   ing:['oats','egg','milk'],
-   steps:['Blend 80g oats into flour','Mix with 4 egg whites + 50ml milk + pinch salt','Cook small pancakes on non-stick pan 2 min each side','Serve with honey or yogurt']},
-  {id:'r32',goal:'bulk', name:'Overnight Oats',                 protein:20,kcal:440,time:'5 min',
-   ing:['oats','milk','yogurt','banana'],
-   steps:['Mix 80g oats + 250ml milk + 100g yogurt','Add sliced banana','Cover, refrigerate overnight','In morning: add honey or protein powder','Ready to eat cold — no cooking']},
-  {id:'r33',goal:'bulk', name:'Big Protein Shake',              protein:40,kcal:500,time:'3 min',
-   ing:['milk','protein','oats','peanut'],
-   steps:['Add 300ml milk to blender','Add 2 scoops protein powder','Add 50g oats + 2 tbsp peanut butter','Blend until smooth','Drink immediately']},
-  {id:'r34',goal:'bulk', name:'Chicken & Egg Fried Rice',       protein:46,kcal:540,time:'20 min',
-   ing:['chicken','rice','egg'],
-   steps:['Dice + stir-fry chicken breast 5 min','Push aside, scramble 2 eggs in same pan','Add cooked rice, stir-fry everything','Season with soy sauce','Serve hot']},
-  {id:'r35',goal:'bulk', name:'Turkey Bolognese',               protein:42,kcal:480,time:'25 min',
-   ing:['turkey','pasta','tomato'],
-   steps:['Brown turkey mince with garlic','Add diced tomato, herbs, salt','Simmer 10 min','Cook pasta al dente','Combine and season generously']},
-  // ── BOTH (recomp — high protein, balanced macros) ─────────────────────────
-  {id:'r36',goal:'both', name:'Chicken & Buckwheat',            protein:44,kcal:480,time:'25 min',
-   ing:['chicken','buckwheat'],
-   steps:['Cook 100g buckwheat in salted water','Season + grill chicken breast 6 min each side','Slice chicken over buckwheat','Drizzle olive oil, season to taste']},
-  {id:'r37',goal:'both', name:'Protein Omelette',               protein:32,kcal:320,time:'10 min',
-   ing:['egg','cheese','tomato'],
-   steps:['Whisk 3 eggs with splash of milk','Pour into heated pan','Add diced tomato + grated cheese','Fold omelette, cook 2 more min','Serve hot']},
-  {id:'r38',goal:'both', name:'Twaróg Pancakes',               protein:30,kcal:360,time:'15 min',
-   ing:['twarog','egg','oats'],
-   steps:['Blend twaróg + 2 eggs + 50g oats until smooth','Season with pinch of salt','Cook small pancakes 2 min each side','Serve with yogurt or berries']},
-  {id:'r39',goal:'both', name:'Chicken Wrap',                   protein:40,kcal:420,time:'15 min',
-   ing:['chicken','tortilla','tomato','cucumber'],
-   steps:['Grill chicken breast with seasoning, slice thin','Warm tortilla','Add chicken, sliced tomato, cucumber + yogurt sauce','Roll tightly, cut in half']},
-  {id:'r40',goal:'both', name:'Sardine & Rice Bowl',            protein:30,kcal:400,time:'15 min',
-   ing:['sardines','rice','tomato'],
-   steps:['Cook rice','Open sardines, flake into bowl','Add cooked rice + diced tomato','Season with lemon + olive oil']},
-  {id:'r41',goal:'both', name:'Egg & Spinach Scramble',         protein:26,kcal:280,time:'8 min',
-   ing:['egg','spinach','cheese'],
-   steps:['Heat pan with olive oil','Add spinach, wilt 1 min','Whisk 3 eggs, add to pan','Scramble gently on low heat','Add cheese, serve on toast or alone']},
-  {id:'r42',goal:'both', name:'Cottage Cheese Pancakes',        protein:28,kcal:320,time:'15 min',
-   ing:['cottage','egg','oats','banana'],
-   steps:['Mash banana with fork','Mix with cottage cheese + egg + 40g oats','Cook small pancakes 2 min each side','Serve with Greek yogurt']},
-  {id:'r43',goal:'both', name:'Beef & Broccoli Stir-Fry',       protein:36,kcal:380,time:'15 min',
-   ing:['beef','broccoli','garlic'],
-   steps:['Slice beef thin against grain','Stir-fry broccoli in hot oil 3 min','Add beef, cook 3 min on high heat','Add garlic + soy sauce, toss 1 min']},
-  {id:'r44',goal:'both', name:'Egg Muffins (Meal Prep ×6)',     protein:24,kcal:260,time:'20 min',
+   steps:['300ml whole milk into blender','Add 80g oats + 1 banana','Add 2 scoops protein + 2 tbsp peanut butter','Blend until smooth — 30 sec','Drink within 30 min of workout']},
+  // ── RECOMP ────────────────────────────────────────────────────────────────
+  {id:'r19',goal:'both', name:'Korean Beef Bowl (Bulgogi)',       protein:40,kcal:470,time:'20 min',
+   ing:['beef','rice','garlic','egg'],
+   steps:['Slice beef very thin, marinate 10 min in soy + honey + garlic + sesame oil','Cook rice','Sear beef on highest heat 2 min — do not overcrowd','Fry an egg sunny side up separately','Rice + beef + egg — break yolk into bowl']},
+  {id:'r20',goal:'both', name:'Garlic Butter Chicken + Rice',    protein:48,kcal:490,time:'25 min',
+   ing:['chicken','rice','garlic'],
+   steps:['Season chicken with salt, pepper, paprika, garlic powder','Sear in hot pan 5 min each side until golden crust forms','Add 2 tbsp butter + 3 garlic cloves to pan, baste chicken 2 min','Cook rice in chicken pan drippings for extra flavour','Rest chicken 5 min before slicing']},
+  {id:'r21',goal:'both', name:'Tuna Pasta Arrabbiata',           protein:38,kcal:460,time:'15 min',
+   ing:['tuna','pasta','tomato','garlic'],
+   steps:['Cook 100g pasta','Fry 3 garlic cloves + chili flakes in olive oil 2 min','Add diced tomato, simmer 5 min','Add drained tuna, stir gently — don\'t over-mix','Toss with pasta + pasta water splash','Black pepper generously']},
+  {id:'r22',goal:'both', name:'Egg Muffins (Meal Prep ×6)',      protein:26,kcal:280,time:'20 min',
    ing:['egg','tomato','spinach','cheese'],
-   steps:['Preheat oven 180°C','Whisk 6 eggs with salt, pepper','Add diced tomato + spinach + cheese','Pour into muffin tin','Bake 15 min — makes 6, eat all week']},
-  {id:'r45',goal:'both', name:'Salmon & Rice',                  protein:34,kcal:460,time:'20 min',
-   ing:['salmon','rice','lemon'],
-   steps:['Bake salmon 15 min at 200°C with lemon + salt','Cook rice','Serve salmon over rice','Squeeze extra lemon on top']},
-  {id:'r46',goal:'both', name:'Tuna & Buckwheat Bowl',          protein:34,kcal:400,time:'15 min',
-   ing:['tuna','buckwheat','tomato'],
-   steps:['Cook buckwheat in salted water','Drain tuna','Mix tuna with buckwheat + diced tomato','Season with olive oil + lemon']},
-  {id:'r47',goal:'both', name:'Chicken Soup',                   protein:38,kcal:340,time:'30 min',
-   ing:['chicken','broccoli','potato'],
-   steps:['Boil chicken breast in 500ml salted water','Remove, shred chicken','Add diced potato + broccoli to broth','Simmer 15 min','Return chicken, season with garlic + pepper']},
-  {id:'r48',goal:'both', name:'Beef Kebab Bowl',                protein:38,kcal:480,time:'20 min',
-   ing:['beef','rice','tomato','cucumber'],
-   steps:['Season beef mince with cumin, paprika, garlic, salt','Form into small kebabs','Grill or pan-fry 4 min each side','Serve with rice + tomato + cucumber salad']},
-  {id:'r49',goal:'both', name:'Protein Waffles',                protein:32,kcal:380,time:'20 min',
-   ing:['oats','egg','yogurt','protein'],
-   steps:['Blend 80g oats into fine flour','Mix with 2 eggs + 100g yogurt + 1 scoop protein','Cook in waffle maker or as thick pancakes','Serve with yogurt on top']},
-  {id:'r50',goal:'both', name:'Turkey Burger Bowl',             protein:36,kcal:380,time:'15 min',
-   ing:['turkey','egg','tomato','cucumber'],
-   steps:['Mix turkey mince + 1 egg + seasoning','Form patties, grill 4 min each side','Serve without bun over salad base','Add tomato, cucumber, yogurt sauce']},
-  {id:'r51',goal:'both', name:'Twaróg & Egg White Bowl',       protein:34,kcal:240,time:'10 min',
-   ing:['twarog','egg'],
-   steps:['Separate 4 eggs, keep only whites','Scramble whites in non-stick pan, season','Serve alongside cold twaróg','Add cucumber or tomato on side']},
-  {id:'r52',goal:'both', name:'Shrimp & Rice Bowl',            protein:32,kcal:440,time:'20 min',
-   ing:['shrimp','rice','garlic'],
-   steps:['Cook rice','Fry shrimp with garlic + olive oil 4 min','Season with paprika, salt, lemon','Serve shrimp over rice']},
-  {id:'r53',goal:'both', name:'Salmon Caesar Salad',           protein:34,kcal:380,time:'15 min',
+   steps:['Preheat oven 180°C, grease muffin tin well','Whisk 6 eggs with salt + pepper + paprika','Add diced tomato + spinach + grated cheese to mix','Pour into muffin tin — fill ¾ full','Bake 14-16 min — set but not rubbery','Keeps 4 days in fridge — grab and go']},
+  {id:'r23',goal:'both', name:'Pork Tenderloin + Sweet Potato',  protein:42,kcal:490,time:'35 min',
+   ing:['pork','potato','garlic'],
+   steps:['Rub pork with garlic + paprika + salt + olive oil','Sear all sides in oven-safe pan 2 min each','Cube sweet potato, toss in oil + cumin','Roast pork + potato together at 200°C for 22 min','Rest pork 5 min, slice — juicy inside']},
+  {id:'r24',goal:'both', name:'One-Pan Paprika Chicken',         protein:46,kcal:430,time:'30 min',
+   ing:['chicken','tomato','garlic','spinach'],
+   steps:['Season chicken thighs with smoked paprika + garlic + salt','Brown skin-side down in oven pan 5 min','Flip, add diced tomato + garlic + pinch chili','Transfer to oven at 200°C for 20 min','Add spinach last 2 min, let wilt','Sauce is incredible — don\'t waste it']},
+  {id:'r25',goal:'both', name:'Salmon Caesar Salad',             protein:36,kcal:380,time:'15 min',
    ing:['salmon','spinach','cheese','lemon'],
-   steps:['Pan-fry salmon 5 min each side','Break into flakes','Toss with spinach + grated cheese','Add lemon juice + olive oil, season']},
-  {id:'r54',goal:'both', name:'Pork & Buckwheat',              protein:36,kcal:480,time:'25 min',
-   ing:['pork','buckwheat'],
-   steps:['Season pork chop with garlic, paprika, salt','Pan-fry 5 min each side until golden','Cook buckwheat','Serve pork over buckwheat + cucumber salad']},
-  {id:'r55',goal:'both', name:'High-Protein Sausage Bowl',     protein:28,kcal:420,time:'15 min',
-   ing:['sausage','egg','tomato','bread'],
-   steps:['Grill sausages 8 min','Fry 2 eggs sunny side up','Toast bread','Serve with sliced tomato + black pepper']},
-  {id:'r56',goal:'both', name:'Greek Yogurt Smoothie',         protein:26,kcal:300,time:'3 min',
-   ing:['yogurt','banana','kefir','protein'],
-   steps:['Add yogurt + kefir to blender','Add banana + protein powder','Blend 20 sec','Pour over ice if desired']},
-  {id:'r57',goal:'both', name:'Chicken & Sweet Potato',        protein:44,kcal:500,time:'35 min',
-   ing:['chicken','potato'],
-   steps:['Cube potato, roast at 200°C 25 min with olive oil + paprika','Season chicken, bake 20 min alongside','Serve together','Add green veg on side']},
-  {id:'r58',goal:'both', name:'Milk & Twaróg Protein Bowl',   protein:36,kcal:300,time:'3 min',
-   ing:['twarog','milk','honey'],
-   steps:['Mix twaróg with 100ml milk until creamy','Drizzle honey on top','Optional: add banana slices','High-protein low-effort snack or breakfast']},
+   steps:['Pan-fry salmon 4 min each side on medium-high — skin side first','Break into chunks while hot','Toss spinach with lemon juice + olive oil + salt','Top with salmon + shaved parmesan or grated cheese','Crack black pepper generously — eat immediately']},
+  {id:'r26',goal:'both', name:'Chicken & Buckwheat Meal Prep',   protein:47,kcal:490,time:'35 min',
+   ing:['chicken','buckwheat','spinach'],
+   steps:['Season + grill 400g chicken breast','Cook 200g buckwheat, season with olive oil + salt','Wilt spinach with garlic 2 min','Divide into 3 containers evenly','Refrigerate — reheats perfectly for work lunch 3 days running']},
+  {id:'r27',goal:'both', name:'Sweet Potato & Chicken Lunch Box',protein:44,kcal:510,time:'40 min',
+   ing:['chicken','potato','broccoli'],
+   steps:['Cube sweet potato, roast at 200°C 25 min with oil + paprika + salt','Season chicken, bake in same tray last 20 min','Steam broccoli 5 min separately','Divide into containers while hot — close lid to steam together','Tastes better next day as flavours settle']},
+  {id:'r28',goal:'both', name:'Tuna & Brown Rice Lunch Box',     protein:32,kcal:380,time:'15 min',
+   ing:['tuna','rice','broccoli','lemon'],
+   steps:['Cook 100g brown rice','Drain 2 tuna cans, season with lemon + olive oil + black pepper','Steam broccoli, season with salt','Layer rice → broccoli → tuna in container','Pack lemon wedge separately for freshness when eating']},
+  {id:'r29',goal:'both', name:'Beef & Tomato Stew',              protein:38,kcal:420,time:'35 min',
+   ing:['beef','tomato','garlic','potato'],
+   steps:['Brown 200g beef chunks in hot oil — 3 min without touching for crust','Add garlic + paprika + cumin, cook 1 min','Add diced tomato + 200ml water + salt','Simmer 20 min covered','Add diced potato last 10 min','Thickens beautifully — tastes like something slow-cooked']},
+  {id:'r30',goal:'both', name:'Salmon & Rice Soy Bowl',          protein:36,kcal:450,time:'20 min',
+   ing:['salmon','rice','garlic','lemon'],
+   steps:['Cook rice','Mix 2 tbsp soy + 1 tsp honey + minced garlic + sesame oil — marinade','Coat salmon, pan-sear 4 min each side on medium-high','Pour remaining marinade into pan last 30 sec — baste','Serve over rice, finish with lemon + sesame seeds if available']},
+  {id:'r31',goal:'both', name:'Turkey Patties + Sweet Potato',   protein:40,kcal:440,time:'25 min',
+   ing:['turkey','egg','potato','garlic'],
+   steps:['Mix turkey mince + 1 egg + minced garlic + salt + paprika + cumin','Form into 4 patties','Cook in pan 4-5 min each side — press slightly for even cook','Microwave or bake sweet potato 200g separately','Serve patties over sliced sweet potato — great combo']},
+  {id:'r32',goal:'both', name:'Chicken Soup (Meal Prep ×3)',     protein:42,kcal:350,time:'35 min',
+   ing:['chicken','potato','broccoli','garlic'],
+   steps:['Boil 400g chicken breast in 800ml salted water with garlic','Remove chicken, shred with two forks','Add diced potato to broth, cook 10 min','Add broccoli last 5 min','Return chicken, season — 3 work lunches done']},
+  {id:'r33',goal:'both', name:'Cottage Cheese Protein Lunch',    protein:34,kcal:290,time:'5 min',
+   ing:['cottage','cucumber','tomato','egg'],
+   steps:['Boil 3 eggs hard the night before','Spoon 200g cottage cheese into container','Add sliced cucumber + halved tomatoes','Pack eggs separately to stay fresh','Mix everything when eating — add olive oil + salt + pepper']},
+  {id:'r34',goal:'both', name:'Creamy Twaróg Pasta',            protein:36,kcal:480,time:'15 min',
+   ing:['twarog','pasta','garlic','tomato'],
+   steps:['Cook 100g pasta','Blend 150g twaróg + 1 garlic clove + 50ml pasta water until smooth','Toss hot pasta in twaróg sauce — it melts into a creamy coating','Add diced tomato + olive oil','Season with black pepper + salt — tastes like a rich cream sauce']},
+  {id:'r35',goal:'both', name:'Soy-Glazed Salmon & Buckwheat',  protein:38,kcal:460,time:'25 min',
+   ing:['salmon','buckwheat','garlic'],
+   steps:['Cook 100g buckwheat in salted water','Mix 2 tbsp soy + 1 tsp honey + 1 garlic clove — glaze','Pan-sear salmon 3 min each side on medium-high','Pour glaze in last minute, baste quickly','Serve over buckwheat — sauce soaks in beautifully']},
 ];
 
 let _recipeExpanded=new Set();
@@ -1322,7 +1341,10 @@ function setRecipeGoal(g,btn){
 function matchScore(recipe,tokens){
   if(!tokens.length)return 1;
   let matched=0;
-  tokens.forEach(t=>{if(recipe.ing.some(i=>i.includes(t)||t.includes(i)))matched++;});
+  tokens.forEach(t=>{
+    if(recipe.name.toLowerCase().includes(t))matched++;
+    else if(recipe.ing.some(i=>i.includes(t)||t.includes(i)))matched+=0.8;
+  });
   return matched/tokens.length;
 }
 function renderRecipes(){
@@ -1370,8 +1392,8 @@ function foodTotals(date){
 }
 function renderFoodTotals(){
   const t=foodTotals(today);
-  const protPct=Math.min(100,Math.round(t.protein/150*100));
-  const kcalPct=Math.min(100,Math.round(t.calories/2000*100));
+  const protPct=Math.min(100,Math.round(t.protein/170*100));
+  const kcalPct=Math.min(100,Math.round(t.calories/2100*100));
   const pv=document.getElementById('food-prot-val');
   if(pv)pv.innerHTML=`${t.protein}<span style="font-size:14px;opacity:.6">g</span>`;
   const pp=document.getElementById('food-prot-pct');if(pp)pp.textContent=protPct+'%';
@@ -1420,7 +1442,194 @@ function renderFoodLog(){
       <div class="flog-del" onclick="deleteFoodEntry('${e.id}')">×</div>
     </div>`).join('');
 }
-function renderFoodPage(){renderFoodTotals();renderRecentFoods();renderFoodQA();renderFoodLog();}
+function renderFoodPage(){renderFoodTotals();renderRecentFoods();renderFoodQA();renderFoodLog();renderRecipes();renderPlanCard();}
+
+// ── Meal Planner ──────────────────────────────────────────────────────────────
+// meal_plan[date][slotId] = {id, name, protein, kcal} — one recipe per slot
+let _planDay=0;
+let _pickerDate=null,_pickerSlot=null;
+
+const PLAN_SLOTS=[
+  {id:'lunch', label:'🧳 Work Lunch'},
+];
+const ING_CAT={
+  chicken:'meat',turkey:'meat',beef:'meat',pork:'meat',tuna:'meat',salmon:'meat',
+  sardines:'meat',shrimp:'meat',fish:'meat',
+  egg:'dairy',milk:'dairy',yogurt:'dairy',twarog:'dairy',kefir:'dairy',
+  cheese:'dairy',cottage:'dairy',
+  rice:'carbs',pasta:'carbs',oats:'carbs',bread:'carbs',potato:'carbs',
+  buckwheat:'carbs',tortilla:'carbs',
+  broccoli:'veg',spinach:'veg',tomato:'veg',cucumber:'veg',banana:'veg',
+  garlic:'veg',lemon:'veg',lettuce:'veg',
+  protein:'extras',peanut:'extras',honey:'extras',oil:'extras',
+};
+
+function getPlanDate(offset){
+  const d=new Date();d.setDate(d.getDate()+offset);return d.toISOString().slice(0,10);
+}
+function planDayTotal(date){
+  return PLAN_SLOTS.reduce((acc,s)=>{
+    const r=meal_plan[date]?.[s.id];
+    return{protein:acc.protein+(r?.protein||0),calories:acc.calories+(r?.kcal||0)};
+  },{protein:0,calories:0});
+}
+function setPlanDay(n,btn){
+  _planDay=n;
+  document.querySelectorAll('.plan-chip').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  renderPlanCard();
+}
+function renderPlanCard(){
+  const el=document.getElementById('plan-day-card');if(!el)return;
+  const date=getPlanDate(_planDay);
+  const isToday=date===today;
+  const dt=planDayTotal(date);
+  let html='';
+  PLAN_SLOTS.forEach(slot=>{
+    const r=meal_plan[date]?.[slot.id];
+    html+=`<div class="plan-slot">
+      <div class="plan-slot-hdr">
+        <div class="plan-slot-title">${slot.label}</div>
+        ${r?`<button class="plan-item-del" onclick="removePlanSlot('${date}','${slot.id}')">×</button>`:''}
+      </div>
+      ${r
+        ?`<div class="plan-item">
+            <div style="flex:1;min-width:0">
+              <div class="plan-item-name">${r.name}</div>
+              <div class="plan-item-macros">${r.protein}g protein · ${r.kcal} kcal${isToday?' · <span style="color:var(--gr)">logged ✓</span>':''}</div>
+            </div>
+          </div>`
+        :`<button class="plan-add-btn" onclick="openPicker('${date}','${slot.id}','${slot.label}')">+ What to cook?</button>`
+      }
+    </div>`;
+  });
+  html+=`<div class="plan-day-total">
+    <div><div style="font-size:10px;color:var(--tx3);margin-bottom:2px;letter-spacing:.05em">PROTEIN</div><div class="plan-day-prot">${dt.protein}g</div></div>
+    <div style="text-align:center"><div style="font-size:10px;color:var(--tx3);margin-bottom:2px">${['TODAY','TOMORROW','+2 DAYS'][_planDay]}</div><div style="font-size:10px;color:var(--tx3)">${date}</div></div>
+    <div style="text-align:right"><div style="font-size:10px;color:var(--tx3);margin-bottom:2px;letter-spacing:.05em">CALORIES</div><div class="plan-day-kcal">${dt.calories}</div></div>
+  </div>`;
+  el.innerHTML=html;
+}
+function removePlanSlot(date,slot){
+  if(meal_plan[date])delete meal_plan[date][slot];
+  ss('meal_plan',meal_plan);
+  renderPlanCard();
+  if(document.getElementById('plan-grocery-wrap')?.style.display!=='none')renderGroceryList();
+}
+
+// Food picker drawer — shows recipes
+function openPicker(date,slot,slotLabel){
+  _pickerDate=date;_pickerSlot=slot;
+  document.getElementById('picker-title').textContent=slotLabel;
+  document.getElementById('picker-search').value='';
+  renderPickerList();
+  document.getElementById('picker-overlay').classList.add('open');
+  setTimeout(()=>document.getElementById('picker-search')?.focus(),320);
+}
+function closePicker(){
+  document.getElementById('picker-overlay').classList.remove('open');
+  _pickerDate=null;_pickerSlot=null;
+}
+function pickerOverlayClose(e){if(e.target===document.getElementById('picker-overlay'))closePicker();}
+function renderPickerList(){
+  const el=document.getElementById('picker-body');if(!el)return;
+  const q=(document.getElementById('picker-search')?.value||'').toLowerCase().trim();
+  const goalColor={cut:'var(--rd)',bulk:'var(--gr)',both:'var(--bl)'};
+  const goalLabel={cut:'🔥 Cut',bulk:'💪 Bulk',both:'⚖ Recomp'};
+  let list=q?RECIPES.filter(r=>r.name.toLowerCase().includes(q)||r.ing.some(i=>i.includes(q))):RECIPES;
+  if(!list.length){
+    el.innerHTML='<div style="font-size:12px;color:var(--tx3);text-align:center;padding:24px 0">No recipes found</div>';
+    return;
+  }
+  el.innerHTML=list.map(r=>`
+    <div class="picker-item" onclick="pickRecipe('${r.id}')">
+      <div style="flex:1;min-width:0">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">
+          <span style="font-size:10px;font-weight:700;padding:1px 6px;border-radius:99px;
+            background:${goalColor[r.goal]}22;color:${goalColor[r.goal]};border:.5px solid ${goalColor[r.goal]}44">${goalLabel[r.goal]}</span>
+          <span style="font-size:10px;color:var(--tx3)">⏱ ${r.time}</span>
+        </div>
+        <div class="picker-item-name">${r.name}</div>
+      </div>
+      <div class="picker-item-macros">
+        <div class="picker-item-prot">${r.protein}g</div>
+        <div class="picker-item-kcal">${r.kcal} kcal</div>
+      </div>
+    </div>`).join('');
+}
+function pickRecipe(recipeId){
+  const r=RECIPES.find(x=>x.id===recipeId);if(!r)return;
+  if(!meal_plan[_pickerDate])meal_plan[_pickerDate]={};
+  meal_plan[_pickerDate][_pickerSlot]={id:r.id,name:r.name,protein:r.protein,kcal:r.kcal};
+  ss('meal_plan',meal_plan);
+  // If planning for today, log it to food log immediately
+  if(_pickerDate===today){
+    if(!food_log[today])food_log[today]=[];
+    food_log[today]=food_log[today].filter(e=>e.mealSlot!==_pickerSlot);
+    const now=new Date();
+    const time=now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
+    food_log[today].push({id:'mp'+Date.now(),mealSlot:_pickerSlot,label:r.name,protein:r.protein,calories:r.kcal,time});
+    ss('food_log',food_log);
+    renderFoodLog();renderFoodTotals();renderTodayDash();
+  }
+  renderPlanCard();
+  if(document.getElementById('plan-grocery-wrap')?.style.display!=='none')renderGroceryList();
+  closePicker();
+  syncUp();
+}
+
+// Grocery List — aggregates recipe ingredients across 3 days
+function toggleGroceryList(){
+  const el=document.getElementById('plan-grocery-wrap');if(!el)return;
+  const visible=el.style.display!=='none';
+  el.style.display=visible?'none':'block';
+  if(!visible)renderGroceryList();
+}
+function renderGroceryList(){
+  const el=document.getElementById('groc-list-body');if(!el)return;
+  const ingMap={};
+  for(let i=0;i<3;i++){
+    const date=getPlanDate(i);
+    PLAN_SLOTS.forEach(slot=>{
+      const r=meal_plan[date]?.[slot.id];
+      if(!r)return;
+      const recipe=RECIPES.find(x=>x.id===r.id);
+      if(!recipe)return;
+      recipe.ing.forEach(ing=>{
+        if(!ingMap[ing])ingMap[ing]={label:ing.charAt(0).toUpperCase()+ing.slice(1),cat:ING_CAT[ing]||'extras',count:0};
+        ingMap[ing].count++;
+      });
+    });
+  }
+  const all=Object.entries(ingMap);
+  if(!all.length){
+    el.innerHTML='<div style="font-size:12px;color:var(--tx3);text-align:center;padding:14px 0">Plan meals first to generate your list.</div>';
+    return;
+  }
+  const catOrder=['meat','dairy','carbs','veg','extras'];
+  const catLabels={meat:'🥩 Protein',dairy:'🥚 Dairy & Eggs',carbs:'🌾 Grains & Carbs',veg:'🥦 Veg & Fruit',extras:'⚡ Extras'};
+  let html='';
+  catOrder.forEach(cat=>{
+    const catItems=all.filter(([,v])=>v.cat===cat);
+    if(!catItems.length)return;
+    html+=`<div class="groc-cat">${catLabels[cat]}</div>`;
+    catItems.forEach(([key,v])=>{
+      const checked=!!groc_checks[key];
+      const safeKey=key.replace(/'/g,"\\'");
+      html+=`<div class="groc-item${checked?' groc-checked':''}">
+        <input type="checkbox"${checked?' checked':''} onchange="toggleGrocCheck('${safeKey}',this.checked)">
+        <div class="groc-item-name">${v.label}${v.count>1?` (×${v.count} meals)`:''}</div>
+      </div>`;
+    });
+  });
+  el.innerHTML=html;
+}
+function toggleGrocCheck(key,checked){
+  if(checked)groc_checks[key]=true;else delete groc_checks[key];
+  ss('groc_checks',groc_checks);
+  renderGroceryList();
+}
+function clearGroceryChecks(){groc_checks={};ss('groc_checks',groc_checks);renderGroceryList();}
 async function addFoodQA(foodId){
   const food=QA_FOODS.find(f=>f.id===foodId);if(!food)return;
   if(!food_log[today])food_log[today]=[];
@@ -1869,8 +2078,8 @@ ${'─'.repeat(40)}
 
 ${'─'.repeat(40)}
 🥩 NUTRITION
-  Protein : ${ft.protein}g / 150g  (${Math.round(ft.protein/150*100)}%) ${'▓'.repeat(Math.min(10,Math.round(ft.protein/15)))}
-  Calories: ${ft.calories} / 2000 kcal (${Math.round(ft.calories/2000*100)}%)
+  Protein : ${ft.protein}g / 170g  (${Math.round(ft.protein/170*100)}%) ${'▓'.repeat(Math.min(10,Math.round(ft.protein/17)))}
+  Calories: ${ft.calories} / 2100 kcal (${Math.round(ft.calories/2100*100)}%)
   Logged meals:
 ${foodItems}
 
@@ -2207,7 +2416,7 @@ function renderTodayNudge(){
 function renderTodayDash(){
   const el=document.getElementById('today-dash');if(!el)return;
   const ft=foodTotals(today);
-  const protPct=Math.round(ft.protein/150*100);
+  const protPct=Math.round(ft.protein/170*100);
   const wlog=workout_log[today]||{done:false};
   const water=water_log[today]||0;
   const protColor=protPct>=100?'var(--gr)':protPct>=60?'var(--am)':'var(--bl)';
@@ -2335,7 +2544,7 @@ function go(page,btn){
   document.getElementById('scroll').scrollTop=0;
   if(page==='stats')renderStats();
   if(page==='money')renderMoneyPage();
-  if(page==='food'){renderFoodPage();renderRecipes();}
+  if(page==='food')renderFoodPage();
   if(page==='workout')renderWorkout();
   if(page==='report'){renderHabitEditor();renderCfg();renderWeightLog();}
 }
